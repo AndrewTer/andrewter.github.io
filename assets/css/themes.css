@@ -1,0 +1,23 @@
+:root {
+	--main-text-color: 55,55,55;
+	
+	--body-bg-color: 250,250,250;
+	--card-bg-color: 255,255,255;
+	
+	--content-block-bg-color: 245,244,250;
+	--content-block-border-color: 235,235,235;
+
+	--hr-line-color: 235,235,235;
+}
+
+.dark-theme {
+	--main-text-color: 235,235,235;
+	
+	--body-bg-color: 30,30,30;
+	--card-bg-color: 45,45,45;
+
+	--content-block-bg-color: 45,45,45;
+	--content-block-border-color: 69,69,69;
+
+	--hr-line-color: 69,69,69;
+}

@@ -7,3 +7,4 @@ const url = 'https://store.steampowered.com/wishlist/profiles/76561198022125494/
   });
 
   const text = await response.text();
+console.log(text);

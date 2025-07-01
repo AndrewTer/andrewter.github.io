@@ -118,3 +118,30 @@ function changeSlogan() {
 }
 
 setInterval(changeSlogan, 5000);
+
+
+
+function countTimeDown(totalSecondsCount, elementId) {
+  let totalSeconds = totalSecondsCount;
+
+  const updateClock = () => {
+    totalSeconds--;
+
+    if (totalSeconds < 0)
+    {
+      clearInterval(intervalId);
+      document.getElementById('map-with-countdown-timer-text').innerHTML = 'Карта более недоступна';
+      return;
+    }
+
+    const minutesCount = Math.floor(totalSeconds / 60);
+    const secondsCount = totalSeconds % 60;
+
+    document.getElementById(elementId).innerHTML = '0:' + (minutesCount > 9 ? minutesCount : '0' + minutesCount) + ':' + (secondsCount > 9 ? secondsCount : '0' + secondsCount);
+  };
+
+  const intervalId = setInterval(updateClock, 1000);
+  updateClock();
+}
+
+countTimeDown(3600, 'countdown-timer'); // 3600сек = 1ч

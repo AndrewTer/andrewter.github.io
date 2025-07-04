@@ -1152,37 +1152,41 @@ body {
 	height: calc(100% - 118px);
 }
 
-.mobile .screen .events .events-menu {
+.mobile .screen .events #events-menu {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
 	list-style: none;
+	overflow: auto;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.mobile .screen .events .events-menu .events-menu-item {
+.mobile .screen .events #events-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile .screen .events #events-menu .events-menu-item {
 	position: relative;
-	width: 50%;
-	padding: 2.5px 0;
+	margin: 2.5px 10px 6px 10px;
 	font-family: sans-serif;
 	font-size: 14px;
 	font-weight: bold;
 	text-align: center;
 	color: #303030;
+	text-wrap: nowrap !important;
 }
 
-.mobile .screen .events .events-menu .events-menu-item:has(.events-menu-item-link.active) {
+.mobile .screen .events #events-menu .events-menu-item .events-menu-item-link {
+	padding-bottom: 4px;
+	border-bottom: 2px solid transparent;
+}
+
+.mobile .screen .events #events-menu .events-menu-item .events-menu-item-link.active {
 	color: #FF5A5F;
-}
-
-.mobile .screen .events .events-menu .events-menu-item:has(.events-menu-item-link.active)::after {
-	content: "";
-	position: absolute;
-	bottom: -2.5px;
-	left: 35%;
-	width: 30%;
-	height: 2px;
-	background-color: #FF5A5F;
+	border-bottom: 2px solid #FF5A5F;
 }
 
 .mobile .screen .events .events-menu-item-link {
@@ -1190,7 +1194,7 @@ body {
   cursor: pointer;
 }
 
-.mobile .screen .events .events-menu-item-link span {
+.mobile .screen .events .events-menu-item .notifications-number {
 	margin-left: 5px;
 	padding: 2.5px 5px;
 	color: white;
@@ -1213,9 +1217,10 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen,
-.mobile .screen .events .events-content #sympathies-screen {
-	height: calc(100% + 10px);
-	margin-top: 10px;
+.mobile .screen .events .events-content #sympathies-screen,
+.mobile .screen .events .events-content #mutual-sympathies-screen {
+	height: calc(100% + 13px);
+	margin-top: 5px;
 	padding: 0 10px 10px 10px;
 	overflow: hidden;
 	overflow-y: auto;
@@ -1229,12 +1234,14 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen::-webkit-scrollbar,
-.mobile .screen .events .events-content #sympathies-screen::-webkit-scrollbar {
+.mobile .screen .events .events-content #sympathies-screen::-webkit-scrollbar,
+.mobile .screen .events .events-content #mutual-sympathies-screen::-webkit-scrollbar {
   display: none;
 }
 
 .mobile .screen .events .events-content #views-screen .view-card,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card {
 	display: flex;
 	flex-direction: row;
 	margin: 10px 0 0 0;
@@ -1242,7 +1249,8 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-avatar,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-avatar {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-avatar,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-avatar {
 	width: 75px;
 	height: 75px;
 	object-fit: cover;
@@ -1251,7 +1259,8 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
@@ -1260,24 +1269,28 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info span,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info span {
 	font-family: sans-serif;
 	color: #4b4b4b;
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info span:first-of-type,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span:first-of-type {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span:first-of-type,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info span:first-of-type {
 	font-size: 16px;
 	font-weight: bold;
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info span:last-of-type,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span:last-of-type {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info span:last-of-type,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info span:last-of-type {
 	margin-top: 2.5px;
 	font-size: 14px;
 }
 
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-text {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-text,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info .match-text {
 	margin-top: 2.5px;
 	font-size: 13px;
 	font-weight: bold;
@@ -1285,7 +1298,8 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info .match-info,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info .match-info {
 	margin-top: 2.5px;
 	display: flex;
 	flex-direction: row;
@@ -1294,14 +1308,16 @@ body {
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info .match-info svg,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info svg {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info svg,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info .match-info svg {
 	stroke: orangered;
 	width: 17px;
 	height: 17px;
 }
 
 .mobile .screen .events .events-content #views-screen .view-card .user-info .match-info span,
-.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info span {
+.mobile .screen .events .events-content #sympathies-screen .sympathy-card .user-info .match-info span,
+.mobile .screen .events .events-content #mutual-sympathies-screen .mutual-sympathy-card .user-info .match-info span {
 	margin-left: 3px;
 	font-family: sans-serif;
 	font-size: 13px;
@@ -1350,18 +1366,13 @@ body {
 	color: #303030;
 }
 
-.mobile .screen .profile .profile-menu .profile-menu-item:has(.profile-menu-item-link.active) {
-	color: #FF5A5F;
+.mobile .screen .profile .profile-menu .profile-menu-item .profile-menu-item-link {
+	padding-bottom: 4px;
 }
 
-.mobile .screen .profile .profile-menu .profile-menu-item:has(.profile-menu-item-link.active)::after {
-	content: "";
-	position: absolute;
-	bottom: -2.5px;
-	left: 35%;
-	width: 30%;
-	height: 2px;
-	background-color: #FF5A5F;
+.mobile .screen .profile .profile-menu .profile-menu-item .profile-menu-item-link.active {
+	color: #FF5A5F;
+	border-bottom: 2px solid #FF5A5F;
 }
 
 .mobile .screen .profile .profile-menu-item-link {
@@ -1383,14 +1394,18 @@ body {
 
 .mobile .screen .profile .profile-content #profile-screen,
 .mobile .screen .profile .profile-content #preferences-screen {
-	height: calc(100% + 10px);
-	margin-top: 15px;
+	margin-top: 10px;
 	padding: 0 10px 10px 10px;
 	overflow: hidden;
 	overflow-y: auto;
 }
 
+.mobile .screen .profile .profile-content #profile-screen {
+	height: calc(100% + 12px);
+}
+
 .mobile .screen .profile .profile-content #preferences-screen {
+	height: calc(100% + 22px);
 	margin-top: 0 !important;
 }
 
@@ -1423,6 +1438,7 @@ body {
 }
 
 .mobile .screen .profile .profile-content .avatar .avatar-img img {
+	margin-top: 5px;
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
@@ -1466,13 +1482,35 @@ body {
 }
 
 .mobile .screen .profile .profile-content #profile-screen p svg.edit,
-.mobile .screen .profile .profile-content #preferences-screen p svg.edit {
+.mobile .screen .profile .profile-content #preferences-screen p svg.edit,
+.mobile .screen .profile .profile-content #profile-screen p svg.sex,
+.mobile .screen .profile .profile-content #preferences-screen p svg.sex {
 	position: absolute;
+	right: 0;
+	cursor: pointer;
+}
+
+.mobile .screen .profile .profile-content #profile-screen p svg.edit,
+.mobile .screen .profile .profile-content #preferences-screen p svg.edit {
 	width: 15px;
 	height: 15px;
 	stroke: #4b4b4b;
-	right: 0;
-	cursor: pointer;
+}
+
+.mobile .screen .profile .profile-content #profile-screen p svg.sex,
+.mobile .screen .profile .profile-content #preferences-screen p svg.sex {
+	display: flex;
+	align-items: flex-end;
+	width: 25px;
+	height: 25px;
+}
+
+.mobile .screen .profile .profile-content #profile-screen p svg.sex {
+	fill: dodgerblue;
+}
+
+.mobile .screen .profile .profile-content #preferences-screen p svg.sex {
+	fill: deeppink;
 }
 
 .mobile .screen .profile .profile-content #profile-screen #current-user-socials .title {

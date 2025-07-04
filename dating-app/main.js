@@ -106,7 +106,7 @@ matchPercentageInput.addEventListener("input", (event) => {
 
 
 
-const slogansArray = ["Притягивай, а не ищи!", "Жизнь слишком коротка для скучных знакомств!", "Твой человек уже рядом!", "Ваши маршруты должны пересечься!"];
+const slogansArray = ["Подойти проще когда уверен во взаимности", "Притягивай, а не ищи!", "Жизнь слишком коротка для скучных знакомств!", "Твой человек уже рядом!", "Ваши маршруты должны пересечься!"];
 
 function getRandomSlogan() {
   let randomIndex = Math.floor(Math.random() * slogansArray.length);
@@ -145,3 +145,31 @@ function countTimeDown(totalSecondsCount, elementId) {
 }
 
 countTimeDown(3600, 'countdown-timer'); // 3600сек = 1ч
+
+
+
+if (document.querySelector('#events-menu'))
+{
+  const eventsMenuSlider = document.querySelector('#events-menu');
+
+  if (eventsMenuSlider.addEventListener)
+    if ('onwheel' in document)
+      // IE9+, FF17+, Ch31+
+      eventsMenuSlider.addEventListener("wheel", scrollEventsPageMenu);
+    else if ('onmousewheel' in document)
+      // obsolete version of the event
+      eventsMenuSlider.addEventListener("mousewheel", scrollEventsPageMenu);
+    else
+      // Firefox < 17
+      eventsMenuSlider.addEventListener("MozMousePixelScroll", scrollEventsPageMenu);
+  else
+    // IE8-
+    eventsMenuSlider.attachEvent("onmousewheel", scrollEventsPageMenu);
+
+  function scrollEventsPageMenu(e) {
+    e = window.event || e;
+    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    document.getElementById('events-menu').scrollLeft -= (delta * 60); // Scroll speed multiplied by 60
+    e.preventDefault();
+  }
+}

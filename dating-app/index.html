@@ -773,9 +773,10 @@
         <div class="screen">
           <p class="title-top">События</p>
           <div class="events">
-            <ul class="events-menu">
+            <ul id="events-menu">
               <li class="events-menu-item"><a class="events-menu-item-link active" data-tab="views-screen">Просмотры</a></li>
-              <li class="events-menu-item"><a class="events-menu-item-link" data-tab="sympathies-screen">Симпатии<span>4</span></a></li>
+              <li class="events-menu-item"><a class="events-menu-item-link" data-tab="sympathies-screen">Симпатии</a><span class="notifications-number">4</span></li>
+              <li class="events-menu-item"><a class="events-menu-item-link" data-tab="mutual-sympathies-screen">Взаимные симпатии</a></li>
             </ul>
             
             <div class="events-content">
@@ -927,20 +928,6 @@
 
               <div class="events-tab-pane" id="sympathies-screen">
                 <div class="sympathy-card">
-                  <img class="user-avatar" src="imgs/girl-2.jpg">
-                  <p class="user-info">
-                    <span>Ксения, 24</span>
-                    <span class="match-info">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"></path>
-                      </svg>
-                      <span>83%</span>
-                    </span>
-                    <span class="match-text">Вы ей понравились!</span>
-                    <span>сегодня в 15:52</span>
-                  </p>
-                </div>
-                <div class="sympathy-card">
                   <img class="user-avatar" src="imgs/girl-4.jpg">
                   <p class="user-info">
                     <span>Люба, 28</span>
@@ -983,6 +970,23 @@
                   </p>
                 </div>
               </div>
+
+              <div class="events-tab-pane" id="mutual-sympathies-screen">
+                <div class="mutual-sympathy-card">
+                  <img class="user-avatar" src="imgs/girl-2.jpg">
+                  <p class="user-info">
+                    <span>Ксения, 24</span>
+                    <span class="match-info">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"></path>
+                      </svg>
+                      <span>83%</span>
+                    </span>
+                    <span class="match-text">У вас взаимная симпатия!</span>
+                    <span>сегодня в 15:52</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -1013,7 +1017,7 @@
 
       <p class="grid-element-comments">
         <span class="text title">Экран с событиями.</span>
-        <span class="text" style="padding-top: 15px;">Имеются два раздела - просмотры другими пользователями анкеты текущего пользователя и взаимные симпатии.</span>
+        <span class="text" style="padding-top: 15px;">Имеются три раздела - просмотры другими пользователями анкеты текущего пользователя, симпатии от других пользователей и взаимные симпатии.</span>
       </p>
     </div>
 
@@ -1052,6 +1056,13 @@
                   <span>Дмитрий</span>
                   <svg class="edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </p>
+                <p>
+                  <span>Пол</span>
+                  <span>Мужской</span>
+                  <svg class="sex" viewBox="-7 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.56 8.060c0-0.44-0.36-0.88-0.84-0.88h-4.6c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h2.6l-3.6 3.6c-1.16-0.92-2.64-1.48-4.24-1.48-3.76 0.080-6.88 3.16-6.88 6.96s3.12 6.88 6.88 6.88 6.88-3.080 6.88-6.88c0-1.6-0.56-3.040-1.48-4.24l3.6-3.6v2.76c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84c0 0 0-4.8 0-4.8zM6.88 23.14c-2.88 0-5.2-2.32-5.2-5.2s2.32-5.2 5.2-5.2 5.2 2.32 5.2 5.2-2.32 5.2-5.2 5.2z"></path>
                   </svg>
                 </p>
                 <p>
@@ -1155,8 +1166,8 @@
                 <p>
                   <span>Интересует</span>
                   <span>Девушка</span>
-                  <svg class="edit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  <svg class="sex" viewBox="-9 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.76 12.040c0-3.8-3.080-6.88-6.88-6.88s-6.88 3.12-6.88 6.88c0 3.52 2.64 6.4 6.040 6.84v3.56h-2c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h2v1.88c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-1.88h2c0.48 0 0.84-0.36 0.84-0.84s-0.36-0.84-0.84-0.84h-2v-3.56c3.4-0.44 6.040-3.32 6.040-6.84zM1.68 12.040c0-2.88 2.32-5.2 5.2-5.2s5.2 2.32 5.2 5.2-2.32 5.2-5.2 5.2-5.2-2.32-5.2-5.2z"></path>
                   </svg>
                 </p>
                 <p>
